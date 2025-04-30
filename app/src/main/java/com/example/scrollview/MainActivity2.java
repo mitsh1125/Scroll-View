@@ -9,19 +9,15 @@ import android.view.MenuItem;
 import androidx.fragment.app.Fragment;
 import com.example.scrollview.databinding.ActivityMainBinding;
 import com.google.android.material.navigation.NavigationBarView;
-
+import android.annotation.SuppressLint;
 public class MainActivity2 extends AppCompatActivity {
 
     ActivityMainBinding binding;
-
-
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-
-
-
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -31,8 +27,6 @@ public class MainActivity2 extends AppCompatActivity {
         if (savedInstanceState == null){
             setCurrentFragment(new Fragment());
         }
-
-
         bottomNavigationView.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
             @Override
             public void onNavigationItemReselected(@NonNull MenuItem item) {
@@ -47,8 +41,6 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
     }
-
-
     private void setCurrentFragment(Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
