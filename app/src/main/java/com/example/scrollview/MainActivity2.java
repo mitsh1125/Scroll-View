@@ -19,6 +19,7 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -27,19 +28,28 @@ public class MainActivity2 extends AppCompatActivity {
         if (savedInstanceState == null){
             setCurrentFragment(new Fragment());
         }
+
+
         bottomNavigationView.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
             @Override
             public void onNavigationItemReselected(@NonNull MenuItem item) {
-                if (item.getItemId()== R.id.home){
-                    setCurrentFragment(new first());
-                } else if ( item.getItemId()== R.id.settings) {
-                    setCurrentFragment(new second());
-                } else if (item.getItemId()== R.id.profile) {
-                    setCurrentFragment(new third());
+
+                Fragment selected = null;
+
+              if (item.getItemId()== R.id.home){
+                  Fragment fragment = new first();
+              }
+                if (item.getItemId()== R.id.profile){
+                    Fragment fragment = new second();
+                }
+                if (item.getItemId()== R.id.settings){
+                    Fragment fragment = new third();
                 }
 
+                return ;
             }
         });
+
     }
     private void setCurrentFragment(Fragment fragment) {
         getSupportFragmentManager()
