@@ -20,42 +20,5 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-
-        if (savedInstanceState == null){
-            setCurrentFragment(new Fragment());
-        }
-
-
-        bottomNavigationView.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
-            @Override
-            public void onNavigationItemReselected(@NonNull MenuItem item) {
-
-                Fragment selected = null;
-
-              if (item.getItemId()== R.id.home){
-                  Fragment fragment = new first();
-              }
-                if (item.getItemId()== R.id.profile){
-                    Fragment fragment = new second();
-                }
-                if (item.getItemId()== R.id.settings){
-                    Fragment fragment = new third();
-                }
-
-                return ;
-            }
-        });
-
-    }
-    private void setCurrentFragment(Fragment fragment) {
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.frame_out, fragment)
-                .commit();
-
     }
 }
